@@ -1,0 +1,16 @@
+{
+  "name": "cordova-plugin-crypto-file",
+  "version": "0.0.1",
+  "description": "This plugin to encrypt/decrypt the source files.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterHdd/cordova-plugin-crypto-file.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "PeterHdd",
+  "license": "Apache version 2.0"
+}
