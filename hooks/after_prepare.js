@@ -62,7 +62,7 @@ module.exports = function(context) {
             cfg.doc.getroot().getchildren().filter(function(child, idx, arr) {
                 return (child.tag == 'content');
             }).forEach(function(child) {
-                child.attrib.src = 'http://localhost:8011/' + child.attrib.src;
+                child.attrib.src = 'http://localhost:8080/' + child.attrib.src;
             });
 
             cfg.write();
