@@ -1,9 +1,48 @@
-# Cordova crypt file plugin
+# Cordova crypto file plugin
 HTML source file is encrypted at build, and decrypted at run.  
-https://www.npmjs.com/package/cordova-plugin-crypt-file
+https://www.npmjs.com/package/cordova-plugin-crypto-file
 
 ## Add Plugin
-`cordova plugin add cordova-plugin-crypt-file`
+`cordova plugin add cordova-plugin-crypto-file`
+
+## Purpose
+
+This plugin was created to solve the issue of using cordova-plugin-ionic-webview with cordova-crypt-file, refer to [#75](https://github.com/tkyaji/cordova-plugin-crypt-file/issues/75) 
+
+## Important
+
+The file `IonicWebViewEngine.java` need to be modified for this plugin to work and for the source code to be encrypted.
+### Steps:
+1. After adding the cordova-plugin-ionic-webview, navigate to the following location:
+
+**platforms/android/src/com/ionicframework/cordova/webview/IonicWebViewEngine.java**
+
+2. Remove the following code:
+
+```
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+      super.shouldInterceptRequest(view,request);
+      return localServer.shouldInterceptRequest(request.getUrl());
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+      return localServer.shouldInterceptRequest(Uri.parse(url));
+    }
+```
+3. Add this instead:
+
+```
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+      return super.shouldInterceptRequest(view, url);
+    }
+ ```
+ 
+ Then the plugin will work.
 
 ## Encrypt
 `cordova build [ios / android]`
@@ -47,9 +86,10 @@ Specify the target file as a regular expression.
 * Android
 * CrossWalk
 
-## Before reporting your issue
-It would be very helpful if you show me your project (If you have GitHub repository, that URL would be nice).
-It is very hard for me to reporduce your enviroment.
+
+## Based on the original cordova-crypt-file created by tkyaji
+
+https://github.com/tkyaji/cordova-plugin-crypt-file
 
 ## License
 Apache version 2.0
