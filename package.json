@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-crypto-file",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This plugin to encrypt/decrypt the source files.",
   "repository": {
     "type": "git",
