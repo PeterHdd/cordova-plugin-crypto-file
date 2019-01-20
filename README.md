@@ -18,7 +18,13 @@ The file `IonicWebViewEngine.java` (that is inside the ionic webview plugin) nee
 ### Steps:
 1. After adding the cordova-plugin-ionic-webview, navigate to the following location:
 
+For cordova-android@6 :
+
 **platforms/android/src/com/ionicframework/cordova/webview/IonicWebViewEngine.java**
+
+For cordova-android@7 :
+
+**platforms/android/app/src/main/java/com/ionicframework/cordova/webview/IonicWebViewEngine.java**
 
 2. Remove the following code:
 
