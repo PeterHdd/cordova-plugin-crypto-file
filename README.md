@@ -1,6 +1,5 @@
-# STILL IN TESTING PHASE
-
------
+![](https://img.shields.io/github/issues/PeterHdd/cordova-plugin-crypto-file.svg)
+![](https://img.shields.io/github/license/PeterHdd/cordova-plugin-crypto-file.svg)
 
 # Cordova crypto file plugin
 HTML source file is encrypted at build, and decrypted at run.  
@@ -14,8 +13,6 @@ https://www.npmjs.com/package/cordova-plugin-crypto-file
 This plugin was created to solve the issue of using cordova-plugin-ionic-webview with cordova-crypt-file, refer to [#75](https://github.com/tkyaji/cordova-plugin-crypt-file/issues/75) 
 
 ## Important
-
-If you are using `cordova-android@7` then you need to change `var pluginDir = path.join(platformPath, 'src');` into `var pluginDir = path.join(platformPath, 'app/src/main/java');`
 
 The file `IonicWebViewEngine.java` (that is inside the ionic webview plugin) needs to be modified for this plugin to work and for the source code to be encrypted.
 ### Steps:
@@ -49,6 +46,16 @@ The file `IonicWebViewEngine.java` (that is inside the ionic webview plugin) nee
  ```
  
  Then the plugin will work.
+
+## FAQ
+
+Q: I'm getting the following error:
+
+>Error: ENOENT: no such file or directory, open 'C:\path\platform\android\src\com\crypt\cordova\DecryptResource.java'
+
+ When i added the plugin while doing `cordova build android`, how to fix it?
+
+A: If you are using `cordova-android@7` then you need to change `var pluginDir = path.join(platformPath, 'src');` into `var pluginDir = path.join(platformPath, 'app/src/main/java');`
 
 ## Encrypt
 `cordova build [ios / android]`
