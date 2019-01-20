@@ -47,16 +47,6 @@ The file `IonicWebViewEngine.java` (that is inside the ionic webview plugin) nee
  
  Then the plugin will work.
 
-## FAQ
-
-Q: I'm getting the following error:
-
->Error: ENOENT: no such file or directory, open 'C:\path\platform\android\src\com\crypt\cordova\DecryptResource.java'
-
- When i added the plugin while doing `cordova build android`, how to fix it?
-
-A: If you are using `cordova-android@7` then you need to change `var pluginDir = path.join(platformPath, 'src');` into `var pluginDir = path.join(platformPath, 'app/src/main/java');`
-
 ## Encrypt
 `cordova build [ios / android]`
 
