@@ -1,3 +1,6 @@
+#STILL IN TESTING PHASE
+
+
 # Cordova crypto file plugin
 HTML source file is encrypted at build, and decrypted at run.  
 https://www.npmjs.com/package/cordova-plugin-crypto-file
