@@ -1,3 +1,7 @@
+# STILL IN TESTING PHASE
+
+-----
+
 # Cordova crypto file plugin
 HTML source file is encrypted at build, and decrypted at run.  
 https://www.npmjs.com/package/cordova-plugin-crypto-file
@@ -11,7 +15,9 @@ This plugin was created to solve the issue of using cordova-plugin-ionic-webview
 
 ## Important
 
-The file `IonicWebViewEngine.java` need to be modified for this plugin to work and for the source code to be encrypted.
+If you are using `cordova-android@7` then you need to change `var pluginDir = path.join(platformPath, 'src');` into `var pluginDir = path.join(platformPath, 'app/src/main/java');`
+
+The file `IonicWebViewEngine.java` (that is inside the ionic webview plugin) needs to be modified for this plugin to work and for the source code to be encrypted.
 ### Steps:
 1. After adding the cordova-plugin-ionic-webview, navigate to the following location:
 
@@ -37,8 +43,8 @@ The file `IonicWebViewEngine.java` need to be modified for this plugin to work a
 
 ```
     @Override
-    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-      return super.shouldInterceptRequest(view, url);
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+      return super.shouldInterceptRequest(view, request);
     }
  ```
  
