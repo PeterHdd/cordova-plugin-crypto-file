@@ -52,6 +52,18 @@ For cordova-android@7 :
  ```
  
  Then the plugin will work.
+ 
+## Configuration
+
+You can also change the port in the `config.xml`, but it needs to be the same port as the one used in the "cordova-plugin-ionic-webview".
+
+To change the port, do the following:
+
+#### cryptoPort
+
+```xml
+<preference name="cryptoPort" value="8080" />
+```
 
 ## Encrypt
 `cordova build [ios / android]`

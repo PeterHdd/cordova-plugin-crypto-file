@@ -66,11 +66,23 @@ module.exports = function(context) {
             replaceCryptKey_android(pluginDir, key, iv);
 
             var cfg = new ConfigParser(platformInfo.projectConfig.path);
-            cfg.doc.getroot().getchildren().filter(function(child, idx, arr) {
-                return (child.tag == 'content');
-            }).forEach(function(child) {
-                child.attrib.src = 'http://localhost:8080/' + child.attrib.src;
-            });
+            var port = cfg.getGlobalPreference("cryptoPort");
+            if( port == '')
+            {
+                cfg.doc.getroot().getchildren().filter(function(child, idx, arr) {
+                    return (child.tag == 'content');
+                }).forEach(function(child) {
+                    child.attrib.src = 'http://localhost:8080/' + child.attrib.src;
+                });
+            }
+            else
+            {
+                cfg.doc.getroot().getchildren().filter(function(child, idx, arr) {
+                    return (child.tag == 'content');
+                }).forEach(function(child) {
+                    child.attrib.src = 'http://localhost:' + port + '/' + child.attrib.src;
+                });
+            }
 
             cfg.write();
         }

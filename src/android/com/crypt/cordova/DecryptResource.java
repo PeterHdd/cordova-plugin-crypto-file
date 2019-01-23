@@ -24,8 +24,6 @@ public class DecryptResource extends CordovaPlugin {
 
   private static final String TAG = "DecryptResource";
 
-  private static final String URL_PREFIX = "http://localhost:8080/";
-
   private static final String CRYPT_KEY = "";
   private static final String CRYPT_IV = "";
 
@@ -36,10 +34,17 @@ public class DecryptResource extends CordovaPlugin {
     ".css",
   };
 
+  private String URL_PREFIX;
   private String launchUri;
+
+    public void changingPort(CordovaPreferences preferences){
+    String port      = preferences.getString("cryptoPort","8080");
+    URL_PREFIX       = "http://localhost:" + port + "/";
+  }
 
   @Override
   public Uri remapUri(Uri uri) {
+    changingPort(preferences);
     this.launchUri = uri.toString();
     if (this.launchUri.toString().startsWith(URL_PREFIX)) {
       return this.toPluginUri(uri);
