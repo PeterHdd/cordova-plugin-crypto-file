@@ -7,6 +7,7 @@ import android.util.Log;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaResourceApi;
 import org.apache.cordova.LOG;
+import org.apache.cordova.CordovaPreferences;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
