@@ -40,7 +40,9 @@ public class DecryptResource extends CordovaPlugin {
 
     public void changingPort(CordovaPreferences preferences){
     String port      = preferences.getString("cryptoPort","8080");
-    URL_PREFIX       = "http://localhost:" + port + "/";
+    //URL_PREFIX       = "http://localhost:" + port + "/";
+    URL_PREFIX       = "file:///android_asset/www/";
+      
   }
 
   @Override
